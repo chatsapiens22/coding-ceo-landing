@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>코딩하는 CEO — 코드 한 줄 몰라도 직접 만드는 경영진을 위한 AX 실전서</title>
+<meta name="description" content="코딩 모르는 경영자가 AI에게 일을 시켜 첫 결과물을 직접 만드는 법. 체험판 1/3 무료로 받아보세요.">
+<!-- Open Graph -->
+<meta property="og:title" content="코딩하는 CEO — 체험판 무료">
+<meta property="og:description" content="코드 한 줄 몰라도 직접 만들어보는, 기업·공공 경영진을 위한 AX 실전서. 체험판 1/3 무료.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<style>
+  :root{
+    --bg:#eef4f2; --paper:#fbfdfc; --surface:#ffffff;
+    --ink:#12263a; --ink2:#344e63; --muted:#6d8192;
+    --navy:#173a5d; --navy2:#0f2a45;
+    --teal:#089aa2; --teal-deep:#066c72; --teal-soft:#e1f3f3;
+    --coral:#ef674f; --coral-soft:#fdebe6;
+    --line:#dce6e4; --radius:16px;
+    --shadow:0 10px 30px rgba(15,42,69,.08);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:"Pretendard Variable",Pretendard,-apple-system,sans-serif;
+    background:var(--bg);color:var(--ink);line-height:1.7;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+  a{color:inherit;text-decoration:none}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    font-weight:800;border:0;border-radius:999px;cursor:pointer;transition:.18s;
+    font-family:inherit;font-size:1.05rem;padding:15px 30px}
+  .btn-primary{background:var(--coral);color:#fff;box-shadow:0 8px 22px rgba(239,103,79,.32)}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(239,103,79,.42)}
+  .btn-ghost{background:var(--surface);color:var(--navy);border:1.5px solid var(--line)}
+  .btn-ghost:hover{border-color:var(--teal);color:var(--teal-deep)}
+  .eyebrow{display:inline-block;font-size:.82rem;font-weight:800;letter-spacing:.05em;
+    color:var(--teal-deep);background:var(--teal-soft);padding:6px 14px;border-radius:999px}
+
+  /* HERO */
+  .hero{background:radial-gradient(120% 120% at 12% 0%,#1f4a72 0%,var(--navy) 55%,var(--navy2) 100%);
+    color:#fff;padding:84px 0 92px;position:relative;overflow:hidden}
+  .hero .eyebrow{color:#fff;background:rgba(8,154,162,.28);border:1px solid rgba(225,243,243,.3)}
+  .hero h1{font-size:clamp(2.1rem,5.2vw,3.5rem);font-weight:800;line-height:1.18;
+    letter-spacing:-.03em;margin:20px 0 16px}
+  .hero h1 .hl{color:var(--coral)}
+  .hero .sub{font-size:clamp(1.05rem,2.4vw,1.3rem);color:#cfe0ec;max-width:640px;margin-bottom:14px}
+  .hero .tag{font-size:1rem;color:#9fc6cb;font-style:italic;margin-bottom:30px}
+  .hero .cta-row{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+  .hero .note{font-size:.85rem;color:#88a6b8;margin-top:14px}
+
+  /* TRUST STRIP */
+  .trust{background:var(--navy2);color:#bcd0dd;padding:16px 0;font-size:.92rem;text-align:center}
+  .trust b{color:#fff}
+
+  section{padding:72px 0}
+  .sec-h{font-size:clamp(1.5rem,3.4vw,2.1rem);font-weight:800;color:var(--navy);
+    letter-spacing:-.02em;text-align:center;margin-bottom:10px}
+  .sec-h .u{color:var(--teal)}
+  .sec-sub{text-align:center;color:var(--muted);max-width:560px;margin:0 auto 42px}
+
+  /* PROBLEM CARDS */
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+    padding:28px 24px;box-shadow:var(--shadow)}
+  .card .ico{width:46px;height:46px;border-radius:12px;background:var(--coral-soft);
+    color:var(--coral);display:flex;align-items:center;justify-content:center;
+    font-size:1.4rem;font-weight:800;margin-bottom:14px}
+  .card h3{font-size:1.15rem;color:var(--navy);margin-bottom:8px}
+  .card p{color:var(--ink2);font-size:.97rem}
+
+  /* TOC */
+  .toc-sec{background:var(--paper)}
+  .toc{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .toc-col{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+    padding:26px 24px}
+  .toc-col .badge{display:inline-block;font-size:.78rem;font-weight:800;color:#fff;
+    background:var(--teal);padding:3px 12px;border-radius:7px;margin-bottom:12px}
+  .toc-col h4{color:var(--navy);font-size:1.08rem;margin-bottom:10px}
+  .toc-col ul{list-style:none}
+  .toc-col li{position:relative;padding-left:16px;color:var(--ink2);font-size:.93rem;margin:6px 0}
+  .toc-col li::before{content:"";position:absolute;left:0;top:11px;width:6px;height:6px;
+    border-radius:2px;background:var(--coral)}
+
+  /* AUTHOR */
+  .author{display:flex;gap:28px;align-items:center;background:var(--surface);
+    border:1px solid var(--line);border-radius:var(--radius);padding:34px;box-shadow:var(--shadow)}
+  .author .avatar{flex:none;width:96px;height:96px;border-radius:50%;
+    background:linear-gradient(135deg,var(--teal),var(--navy));color:#fff;
+    display:flex;align-items:center;justify-content:center;font-size:1.6rem;font-weight:800}
+  .author h3{color:var(--navy);font-size:1.25rem;margin-bottom:6px}
+  .author .role{color:var(--teal-deep);font-weight:700;font-size:.92rem;margin-bottom:10px}
+  .author p{color:var(--ink2);font-size:.97rem}
+
+  /* FINAL CTA */
+  .final{background:linear-gradient(120% 120% at 88% 100%,#1f4a72,var(--navy));color:#fff;text-align:center}
+  .final h2{font-size:clamp(1.6rem,3.6vw,2.3rem);font-weight:800;margin-bottom:14px}
+  .final p{color:#cfe0ec;margin-bottom:30px}
+  .final .cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+  .final .or{color:#88a6b8;font-size:.85rem;margin-top:16px}
+
+  footer{background:var(--navy2);color:#7e97a8;padding:32px 0;font-size:.84rem;text-align:center}
+  footer .disc{max-width:680px;margin:0 auto 8px;line-height:1.6}
+
+  /* MODAL */
+  .modal-bg{position:fixed;inset:0;background:rgba(15,42,69,.6);display:none;
+    align-items:center;justify-content:center;padding:20px;z-index:50}
+  .modal-bg.on{display:flex}
+  .modal{background:#fff;border-radius:20px;max-width:440px;width:100%;padding:34px;position:relative}
+  .modal h3{color:var(--navy);font-size:1.3rem;margin-bottom:6px}
+  .modal .msub{color:var(--muted);font-size:.92rem;margin-bottom:22px}
+  .modal label{display:block;font-size:.85rem;font-weight:700;color:var(--ink2);margin:12px 0 5px}
+  .modal input,.modal select{width:100%;padding:12px 14px;border:1.5px solid var(--line);
+    border-radius:10px;font-family:inherit;font-size:.98rem;color:var(--ink)}
+  .modal input:focus,.modal select:focus{outline:0;border-color:var(--teal)}
+  .modal .btn-primary{width:100%;margin-top:22px}
+  .modal .x{position:absolute;top:16px;right:18px;font-size:1.5rem;color:var(--muted);
+    cursor:pointer;background:none;border:0}
+  .modal .consent{font-size:.78rem;color:var(--muted);margin-top:14px;line-height:1.5}
+  .modal .consent input{width:auto;margin-right:6px;vertical-align:middle}
+
+  @media(max-width:760px){
+    .cards,.toc{grid-template-columns:1fr}
+    .author{flex-direction:column;text-align:center}
+    .hero{padding:60px 0 68px}
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <span class="eyebrow">CHATSAPIENS · 기업 AX 실전 시리즈</span>
+    <h1>코드 한 줄 몰라도<br><span class="hl">대표가 직접</span> 만드는 시대</h1>
+    <p class="sub">개발자도 예산도 없이 멈춰 있던 아이디어를, 이제 경영자가 AI에게 시켜 직접 결과물로 만듭니다. 「코딩하는 CEO」가 그 첫걸음을 안내합니다.</p>
+    <p class="tag">"직접 만들어본 리더가, 전환을 결정한다."</p>
+    <div class="cta-row">
+      <button class="btn btn-primary" onclick="openModal()">📘 체험판 1/3 무료로 받기</button>
+      <!-- TODO: 작가와 판매 URL로 교체 (7/1 발매) -->
+      <a class="btn btn-ghost" href="#buy">완본 구매 (9,900원)</a>
+    </div>
+    <p class="note">이메일만 남기면 핵심 1/3을 바로 보내드립니다. 마음에 들면 완본은 작가와에서.</p>
+  </div>
+</header>
+
+<!-- TRUST -->
+<div class="trust">
+  <div class="wrap">Y Combinator 대표 <b>게리 탄</b>이 공개한 <b>gstack</b> 방식 기반 — "AI 하나를 팀처럼" 쓰는 경영자의 실전서</div>
+</div>
+
+<!-- PROBLEM -->
+<section>
+  <div class="wrap">
+    <h2 class="sec-h">이 책이 푸는 <span class="u">3가지 문제</span></h2>
+    <p class="sec-sub">비기술 경영자가 AI 시대에 매번 부딪히는 벽.</p>
+    <div class="cards">
+      <div class="card">
+        <div class="ico">1</div>
+        <h3>아이디어는 많은데 만들 사람이 없다</h3>
+        <p>개발자 채용도 외주도 부담스러워 검증조차 못 하고 멈춥니다. AI에게 제대로 시키는 법을 배우면 대표가 직접 첫 결과물을 만듭니다.</p>
+      </div>
+      <div class="card">
+        <div class="ico">2</div>
+        <h3>"잘 만든 엉뚱한 것"이 가장 비싸다</h3>
+        <p>코드보다 먼저 질문해야 합니다. 무엇을 만들지 검증하는 구조(/office-hours)부터 잡는 법을 다룹니다.</p>
+      </div>
+      <div class="card">
+        <div class="ico">3</div>
+        <h3>작은 팀이 큰 팀처럼 움직이지 못한다</h3>
+        <p>실력이 아니라 구조의 문제입니다. AI를 역할 기반 팀처럼 운영해 한 사람이 기획·개발·검수를 도는 법을 안내합니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TOC -->
+<section class="toc-sec">
+  <div class="wrap">
+    <h2 class="sec-h">무엇을 <span class="u">배우게 되나</span></h2>
+    <p class="sec-sub">원리 → 실전 → 경영. 3부 구성 + 바로 쓰는 부록.</p>
+    <div class="toc">
+      <div class="toc-col">
+        <span class="badge">1부 · 원리</span>
+        <h4>왜, 그리고 무엇을</h4>
+        <ul>
+          <li>비기술 CEO가 바이브코딩을 알아야 하는 이유</li>
+          <li>프롬프트를 설계도처럼 쓰는 3단계</li>
+          <li>게리 탄의 gstack — AI를 팀처럼</li>
+          <li>코딩 전에 질문부터 검증하기</li>
+        </ul>
+      </div>
+      <div class="toc-col">
+        <span class="badge">2부 · 실전</span>
+        <h4>아이디어에서 배포까지</h4>
+        <ul>
+          <li>7단계 워크플로우</li>
+          <li>쇼핑몰 MVP 직접 만들기</li>
+          <li>구독 서비스 MVP</li>
+          <li>투자받는 피치덱 10장</li>
+        </ul>
+      </div>
+      <div class="toc-col">
+        <span class="badge">3부 · 경영 + 부록</span>
+        <h4>AI로 회사를 운영하는 법</h4>
+        <ul>
+          <li>대표의 시간을 복제하는 법</li>
+          <li>AI 시대의 채용·조직문화</li>
+          <li>ROI·KPI·투자자 대시보드</li>
+          <li>복붙용 프롬프트 사례집 10종</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AUTHOR -->
+<section>
+  <div class="wrap">
+    <h2 class="sec-h">지은이</h2>
+    <p class="sec-sub"></p>
+    <div class="author">
+      <div class="avatar">챗</div>
+      <div>
+        <h3>챗사피엔스 이석구</h3>
+        <div class="role">챗사피엔스 평생교육원 · 기업 AX 실전 시리즈</div>
+        <p>AI 전환(AX)을 보고서 속 구호가 아니라 누구나 직접 해보는 일로 바꾸는 교육 브랜드. 기업과 공공기관의 경영진·실무자를 위한 실전 교육과정을 운영하며, 강의실에서 검증된 방법을 기업 AX 실전 시리즈로 펴내고 있습니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final" id="buy">
+  <div class="wrap">
+    <h2>먼저 1/3을 읽어보세요</h2>
+    <p>이메일만 남기면 핵심 챕터를 바로 보내드립니다. 완본이 필요하면 작가와에서 9,900원.</p>
+    <div class="cta-row">
+      <button class="btn btn-primary" onclick="openModal()">📘 체험판 무료로 받기</button>
+      <!-- TODO: 작가와 판매 URL로 교체 -->
+      <a class="btn btn-ghost" href="#" style="background:rgba(255,255,255,.12);color:#fff;border-color:rgba(255,255,255,.3)">작가와에서 9,900원 구매</a>
+    </div>
+    <p class="or">기업·공공 교육/도입 문의는 체험판 신청 후 안내드립니다.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p class="disc">「코딩하는 CEO」 · 챗사피엔스 평생교육원 · 기업 AX 실전 시리즈 · 2026</p>
+    <p>이 책 내용의 전부 또는 일부를 재사용하려면 반드시 저작권자의 서면 동의를 받아야 합니다.</p>
+  </div>
+</footer>
+
+<!-- LEAD MODAL -->
+<div class="modal-bg" id="modalBg">
+  <div class="modal">
+    <button class="x" onclick="closeModal()">&times;</button>
+    <h3>체험판 1/3 무료 받기</h3>
+    <p class="msub">아래 정보를 남기시면 핵심 챕터를 이메일로 보내드립니다.</p>
+    <!-- TODO: action을 실제 폼 endpoint(Formspree/Tally) 또는 009 봇 연동으로 교체 -->
+    <form id="leadForm" action="https://formspree.io/f/REPLACE_FORM_ID" method="POST">
+      <label>이메일 *</label>
+      <input type="email" name="email" required placeholder="name@company.com">
+      <label>이름 *</label>
+      <input type="text" name="name" required placeholder="홍길동">
+      <label>회사/기관</label>
+      <input type="text" name="company" placeholder="(선택) 소속">
+      <label>직책</label>
+      <select name="role">
+        <option value="">(선택) 직책</option>
+        <option>대표/임원</option>
+        <option>공공기관 의사결정자</option>
+        <option>팀장/실무</option>
+        <option>개인/학습</option>
+      </select>
+      <div class="consent">
+        <label style="font-weight:400;margin-top:14px"><input type="checkbox" name="consent_required" required>(필수) 체험판 발송을 위한 개인정보 수집·이용에 동의합니다.</label>
+        <label style="font-weight:400;margin-top:6px"><input type="checkbox" name="consent_marketing">(선택) 교육·웨비나 등 마케팅 정보 수신에 동의합니다.</label>
+      </div>
+      <button type="submit" class="btn btn-primary">체험판 받기</button>
+    </form>
+  </div>
+</div>
+
+<script>
+  function openModal(){document.getElementById('modalBg').classList.add('on')}
+  function closeModal(){document.getElementById('modalBg').classList.remove('on')}
+  document.getElementById('modalBg').addEventListener('click',function(e){
+    if(e.target===this)closeModal();
+  });
+</script>
+</body>
+</html>
