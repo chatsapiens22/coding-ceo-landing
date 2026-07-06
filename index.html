@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
+<!-- Formspree 폼 연결 완료 (2026-07-06, form id: maqgkwlr) -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>코딩하는 CEO — 코드 한 줄 몰라도 직접 만드는 경영진을 위한 AX 실전서</title>
-<meta name="description" content="코딩 모르는 경영자가 AI에게 일을 시켜 첫 결과물을 직접 만드는 법. 체험판 1/3 무료로 받아보세요.">
+<meta name="description" content="코딩 모르는 경영자가 AI에게 일을 시켜 첫 결과물을 직접 만드는 법. 60페이지 무료 체험판을 받아보세요.">
 <!-- Open Graph -->
 <meta property="og:title" content="코딩하는 CEO — 체험판 무료">
-<meta property="og:description" content="코드 한 줄 몰라도 직접 만들어보는, 기업·공공 경영진을 위한 AX 실전서. 체험판 1/3 무료.">
+<meta property="og:description" content="코드 한 줄 몰라도 직접 만들어보는, 기업·공공 경영진을 위한 AX 실전서. 60페이지 무료 체험판.">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://cdn.jsdelivr.net">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
@@ -118,6 +119,9 @@
     cursor:pointer;background:none;border:0}
   .modal .consent{font-size:.78rem;color:var(--muted);margin-top:14px;line-height:1.5}
   .modal .consent input{width:auto;margin-right:6px;vertical-align:middle}
+  .modal .consent label.off{opacity:.45;transition:opacity .15s}
+  .modal .policy-note{font-size:.76rem;color:var(--muted);margin-top:12px;line-height:1.5}
+  .modal .policy-note a{color:var(--teal-deep);text-decoration:underline}
 
   @media(max-width:760px){
     .cards,.toc{grid-template-columns:1fr}
@@ -136,11 +140,11 @@
     <p class="sub">개발자도 예산도 없이 멈춰 있던 아이디어를, 이제 경영자가 AI에게 시켜 직접 결과물로 만듭니다. 「코딩하는 CEO」가 그 첫걸음을 안내합니다.</p>
     <p class="tag">"직접 만들어본 리더가, 전환을 결정한다."</p>
     <div class="cta-row">
-      <button class="btn btn-primary" onclick="openModal()">📘 체험판 1/3 무료로 받기</button>
+      <button class="btn btn-primary" onclick="openModal()">📘 60페이지 무료 체험판 받기</button>
       <!-- TODO: 작가와 판매 URL로 교체 (7/1 발매) -->
       <a class="btn btn-ghost" href="#buy">완본 구매 (9,900원)</a>
     </div>
-    <p class="note">이메일만 남기면 핵심 1/3을 바로 보내드립니다. 마음에 들면 완본은 작가와에서.</p>
+    <p class="note">이메일만 남기면 핵심 60페이지를 바로 보내드립니다. 마음에 들면 완본은 작가와에서.</p>
   </div>
 </header>
 
@@ -233,7 +237,7 @@
 <!-- FINAL CTA -->
 <section class="final" id="buy">
   <div class="wrap">
-    <h2>먼저 1/3을 읽어보세요</h2>
+    <h2>먼저 60페이지를 읽어보세요</h2>
     <p>이메일만 남기면 핵심 챕터를 바로 보내드립니다. 완본이 필요하면 작가와에서 9,900원.</p>
     <div class="cta-row">
       <button class="btn btn-primary" onclick="openModal()">📘 체험판 무료로 받기</button>
@@ -255,10 +259,10 @@
 <div class="modal-bg" id="modalBg">
   <div class="modal">
     <button class="x" onclick="closeModal()">&times;</button>
-    <h3>체험판 1/3 무료 받기</h3>
+    <h3>60페이지 무료 체험판 받기</h3>
     <p class="msub">아래 정보를 남기시면 핵심 챕터를 이메일로 보내드립니다.</p>
-    <!-- TODO: action을 실제 폼 endpoint(Formspree/Tally) 또는 009 봇 연동으로 교체 -->
-    <form id="leadForm" action="https://formspree.io/f/REPLACE_FORM_ID" method="POST">
+    <!-- 제출 방식: JS submit 인터셉트 없음 → action으로 네이티브 POST가 나가고, 성공/실패 UX는 Formspree 기본 리다이렉트(감사 페이지)로 처리됨. 대안: Tally 폼 또는 009 봇 연동 -->
+    <form id="leadForm" action="https://formspree.io/f/maqgkwlr" method="POST">
       <label>이메일 *</label>
       <input type="email" name="email" required placeholder="name@company.com">
       <label>이름 *</label>
@@ -274,9 +278,11 @@
         <option>개인/학습</option>
       </select>
       <div class="consent">
-        <label style="font-weight:400;margin-top:14px"><input type="checkbox" name="consent_required" required>(필수) 체험판 발송을 위한 개인정보 수집·이용에 동의합니다.</label>
-        <label style="font-weight:400;margin-top:6px"><input type="checkbox" name="consent_marketing">(선택) 교육·웨비나 등 마케팅 정보 수신에 동의합니다.</label>
+        <label style="font-weight:400;margin-top:14px"><input type="checkbox" name="consent_privacy" required>[필수] 개인정보 수집·이용 동의 — 진단·자료 발송 목적. 미동의 시 체험판을 보내드릴 수 없습니다.</label>
+        <label style="font-weight:400;margin-top:6px"><input type="checkbox" name="consent_marketing" id="consentMarketing">[선택] 광고성 정보(마케팅) 수신 동의 — 교육·웨비나 등 소식 안내.</label>
+        <label style="font-weight:400;margin-top:6px" id="consentNightRow"><input type="checkbox" name="consent_night" id="consentNight" disabled>[선택] 야간(21시~08시) 수신 동의 — 마케팅 수신에 동의하신 경우에만 선택할 수 있습니다.</label>
       </div>
+      <p class="policy-note">자세한 내용은 <a href="#">개인정보 처리방침</a> 참조.</p>
       <button type="submit" class="btn btn-primary">체험판 받기</button>
     </form>
   </div>
@@ -288,6 +294,24 @@
   document.getElementById('modalBg').addEventListener('click',function(e){
     if(e.target===this)closeModal();
   });
+
+  // 야간(21~08시) 수신 동의는 마케팅 수신 동의(②)를 체크했을 때만 활성화
+  var consentMarketing=document.getElementById('consentMarketing');
+  var consentNight=document.getElementById('consentNight');
+  var consentNightRow=document.getElementById('consentNightRow');
+  function syncNightConsent(){
+    if(consentMarketing.checked){
+      consentNight.disabled=false;
+      consentNightRow.classList.remove('off');
+    }else{
+      consentNight.checked=false;
+      consentNight.disabled=true;
+      consentNightRow.classList.add('off');
+    }
+  }
+  consentMarketing.addEventListener('change',syncNightConsent);
+  syncNightConsent(); // 초기 상태: 마케팅 미체크 → 야간 비활성
+  // 참고: 폼 제출은 JS 인터셉트 없이 action으로 네이티브 POST(Formspree 기본 리다이렉트로 성공/실패 처리)
 </script>
 </body>
 </html>
